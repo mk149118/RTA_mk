@@ -22,11 +22,10 @@ for message in consumer:
 
     # 1
     features = {
-        "amount": tx["amount"],
-        "hour": tx.get("hour", 12),
-        "is_electronics": 1 if tx["category"] == "elektronika" else 0,
-        "tx_per_day": 5
-    }
+    "amount": tx["amount"],
+    "is_electronics": 1 if tx["category"] == "elektronika" else 0,
+    "tx_per_minute": 5
+}
 
     # 2
     response = requests.post(API_URL, json=features)
